@@ -99,7 +99,7 @@ nav h1 a {
 }
 /* ====================== Map ====================== */
 #map {
-  height: 400px;
+  height: 40vh;
   width: 100%;
   background-color: #ccc;
 }
@@ -116,6 +116,7 @@ nav h1 a {
   font-weight: normal;
   line-height: 1;
   margin: 0 20px;
+  padding-top: 1em;
 }
 .filter-options select {
   background-color: white;
@@ -288,4 +289,50 @@ nav h1 a {
 #restaurants-list{
   display:flex;
   flex-wrap: wrap;
+}
+#restaurants-container{
+  width: 100%;
+}
+#menu{
+  display: inline-block;
+  position: relative;
+  padding-top: 1em;
+  padding-left: 1em;
+  display: none;
+
+}
+#menu svg{
+  width: 32px;
+  fill: #333;
+}
+/* ====================== Media Query Breakpoints ====================== */
+@media screen and (max-width:600px){
+  #map{
+    height: 60vh;
+  }
+
+  /*off-canvas filter*/
+  .filter-options{
+    width: 300px;
+    position: absolute;
+    /* This trasform moves the drawer off canvas. */
+    -webkit-transform: translate(-300px, 0);
+    transform: translate(-300px, 0);
+    /* Optionally, we animate the drawer. */
+    transition: transform 0.3s ease;
+  }
+  .filter-options.open {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  #menu{
+    display: block;
+  }
+}
+
+@media screen and (min-width:601px) and (max-width:900px){
+  
+}
+@media screen and (min-width:901px){
+  
 }
