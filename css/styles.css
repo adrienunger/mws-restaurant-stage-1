@@ -44,16 +44,15 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   color: #aaa;
   font-size: 8pt;
   letter-spacing: 1px;
-  padding: 25px;
+  padding: 2em;
   text-align: center;
   text-transform: uppercase;
 }
 /* ====================== Navigation ====================== */
 nav {
-  width: 100%;
-  height: 80px;
   background-color: #252831;
   text-align:center;
+  padding: 1em;
 }
 nav h1 {
   margin: auto;
@@ -64,6 +63,7 @@ nav h1 a {
   font-weight: 200;
   letter-spacing: 10px;
   text-transform: uppercase;
+
 }
 #breadcrumb {
     padding: 10px 40px 16px;
@@ -115,7 +115,7 @@ nav h1 a {
   font-size: 1rem;
   font-weight: normal;
   line-height: 1;
-  margin: 0 20px;
+  margin: 0 1.2em;
   padding-top: 1em;
 }
 .filter-options select {
@@ -123,9 +123,10 @@ nav h1 a {
   border: 1px solid #fff;
   font-family: Arial,sans-serif;
   font-size: 11pt;
-  height: 35px;
+  height: 48px;
   letter-spacing: 0;
-  margin: 10px;
+  margin: 20px;
+  margin-left: 1.2em; 
   padding: 0 10px;
   width: 200px;
 }
@@ -276,20 +277,19 @@ nav h1 a {
 }
 
 /* ====================== Custom Added CSS ====================== */
-#main-flex-container{
-  display:flex;
+
+.flex-container{
+  display: flex;
   flex-wrap: wrap;
 }
+
 #map-container{
   width:100%;
 }
 #filter-container{
   width:100%;
 }
-#restaurants-list{
-  display:flex;
-  flex-wrap: wrap;
-}
+
 #restaurants-container{
   width: 100%;
 }
@@ -305,8 +305,9 @@ nav h1 a {
   width: 32px;
   fill: #333;
 }
+
 /* ====================== Media Query Breakpoints ====================== */
-@media screen and (max-width:600px){
+@media screen and (max-width:550px){
   #map{
     height: 60vh;
   }
@@ -330,9 +331,27 @@ nav h1 a {
   }
 }
 
-@media screen and (min-width:601px) and (max-width:900px){
-  
+@media screen and (min-width:650px){
+  .filter-options h2 {
+    display: inline-block;
+  }
+}
+@media screen and (min-width:551px) and (max-width:900px){
+  #map{
+    height: 50vh;
+  }
 }
 @media screen and (min-width:901px){
-  
+
 }
+
+
+/*TODO: not sure if I should add this*/
+/*
+@media screen and (min-width:1151px){
+  body{
+    width:1150px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}*/

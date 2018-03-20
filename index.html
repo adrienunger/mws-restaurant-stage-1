@@ -17,19 +17,19 @@
   </header>
 
   <main id="maincontent">
-    <div id="main-flex-container">
+    <div id="main-flex-container" class="flex-container">
       <section id="map-container">
         <div id="map"></div>
       </section>
 
       <section id="filter-container">
-          <a id="menu">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z"></path>
-              </svg>
-            </a>
+        <a id="menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M2 6h20v3H2zm0 5h20v3H2zm0 5h20v3H2z"></path>
+          </svg>
+        </a>
         <div class="filter-options">
-          <h2>Filter Results</h2>
+          <h2>Filter Results:</h2>
           <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
             <option value="all">All Neighborhoods</option>
           </select>
@@ -40,7 +40,7 @@
       </section>
 
       <section id="restaurants-container">
-          <ul id="restaurants-list"></ul>
+          <ul id="restaurants-list" class="flex-container"></ul>
       </section>
     </div>
   </main>
