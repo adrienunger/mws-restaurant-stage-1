@@ -71,7 +71,6 @@ nav h1 a {
     background-color: #eee;
     font-size: 17px;
     margin: 0;
-    width: calc(50% - 80px);
 }
 
 /* Display list items side by side */
@@ -186,18 +185,14 @@ nav h1 a {
 
 /* ====================== Restaurant Details ====================== */
 .inside header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
+  position: relative;
+
 }
 .inside #map-container {
   background: blue none repeat scroll 0 0;
-  height: 87%;
-  position: fixed;
-  right: 0;
-  top: 80px;
-  width: 50%;
+  height: 50vh;
+  position: relative;
+  width: 100%;
 }
 .inside #map {
   background-color: #ccc;
@@ -205,9 +200,7 @@ nav h1 a {
   width: 100%;
 }
 .inside #footer {
-  bottom: 0;
-  position: absolute;
-  width: 50%;
+  position: relative;
 }
 #restaurant-name {
   color: #f18200;
@@ -241,11 +234,10 @@ nav h1 a {
 #restaurant-container, #reviews-container {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
-  padding: 140px 40px 30px;
-  width: 50%;
+  width: 100%;
 }
 #reviews-container {
-  padding: 30px 40px 80px;
+  padding: 30px 40px 20px;
 }
 #reviews-container h2 {
   color: #f58500;
@@ -306,6 +298,18 @@ nav h1 a {
   fill: #333;
 }
 
+#details-container{
+  width: 100%;
+}
+#reviews-list li{
+  max-width: 500px;
+}
+#reviews-list li p{
+  font-size: 16px;
+}
+#restaurant-details{
+  padding: 1em;
+}
 /* ====================== Media Query Breakpoints ====================== */
 @media screen and (max-width:550px){
   #map{
@@ -342,7 +346,14 @@ nav h1 a {
   }
 }
 @media screen and (min-width:901px){
-
+  #restaurant-container{
+    width: 50%;
+    order: -1;
+  }
+  .inside #map-container{
+    width: 50%;
+    height: 70vh;
+  }
 }
 
 
