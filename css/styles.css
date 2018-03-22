@@ -353,7 +353,27 @@ nav h1 a {
   }
   .inside #map-container{
     width: 50%;
-    height: 70vh;
+    height: 78vh;
+  }
+  #restaurant-img, #restaurant-cuisine{
+    max-width: 450px;
+  }
+}
+
+@media screen and (min-width:1301px){
+  #restaurant-container{
+    width: 40%;
+  }
+  .inside #map-container{
+    width: 60%;
+  }
+}
+@media screen and (min-width:1701px){
+  #restaurant-container{
+    width: 30%;
+  }
+  .inside #map-container{
+    width: 70%;
   }
 }
 
