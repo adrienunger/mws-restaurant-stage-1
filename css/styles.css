@@ -153,7 +153,6 @@ nav h1 a {
   display: block;
   margin: 0;
   max-width: 100%;
-  min-height: 248px;
   min-width: 100%;
 }
 #restaurants-list li h1 {
@@ -341,12 +340,23 @@ nav h1 a {
     display: inline-block;
   }
 }
-@media screen and (min-width:551px) and (max-width:900px){
+
+@media screen and (max-width:850px){
+  #restaurant-container, #restaurant-cuisine, #restaurant-hours{
+    text-align: center;
+    margin:auto;
+  }
+  #restaurant-img, #restaurant-cuisine{
+    max-width: 450px;
+  }
+}
+
+@media screen and (min-width:551px) and (max-width:850px){
   #map{
     height: 50vh;
   }
 }
-@media screen and (min-width:901px){
+@media screen and (min-width:851px){
   #restaurant-container{
     width: 50%;
     order: -1;
