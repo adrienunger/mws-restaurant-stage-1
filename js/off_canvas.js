@@ -1,5 +1,5 @@
       /*
-       * Open the filter-options menu when the menu ison is clicked.
+       * Open the filter-options menu when the menu icon is clicked.
        */
       var menu = document.querySelector('#menu');
       var main = document.querySelector('main');
