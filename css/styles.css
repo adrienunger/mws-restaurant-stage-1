@@ -181,6 +181,9 @@ nav h1 a {
   text-decoration: none;
   text-transform: uppercase;
 }
+#restaurants-list li a:focus{
+  text-decoration: underline;
+}
 
 /* ====================== Restaurant Details ====================== */
 .inside header {
@@ -266,7 +269,9 @@ nav h1 a {
 #restaurant-hours td {
   color: #666;
 }
-
+.filter-options select:focus {
+  background-color: rgb(93, 217, 255);
+}
 /* ====================== Custom Added CSS ====================== */
 
 .flex-container{
