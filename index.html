@@ -20,7 +20,7 @@
       <a href="#filter-container" class="skip-link">Skip to restaurant filter</a>
     <div id="mainpage-flex-container" class="flex-container">
       <section id="map-container">
-        <div id="map"></div>
+        <div id="map" role="application" aria-label="Google Maps"></div>
       </section>
 
       <section id="filter-container">
@@ -31,10 +31,10 @@
         </a>
         <div class="filter-options">
           <h2>Filter Results:</h2>
-          <select id="neighborhoods-select" aria-label="filter results by neighborhood" name="neighborhoods" onchange="updateRestaurants()">
+          <select id="neighborhoods-select" aria-label="filter restaurants by neighborhood" name="neighborhoods" onchange="updateRestaurants()">
             <option value="all">All Neighborhoods</option>
           </select>
-          <select id="cuisines-select" aria-label="filter results by cuisine" name="cuisines" onchange="updateRestaurants()">
+          <select id="cuisines-select" aria-label="filter restaurants by cuisine" name="cuisines" onchange="updateRestaurants()">
             <option value="all">All Cuisines</option>
           </select>
         </div>
