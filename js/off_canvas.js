@@ -5,7 +5,7 @@
       var main = document.querySelector('main');
       var filterOp = document.querySelector('.filter-options');
 
-      menu.addEventListener('click', function(e) {
+      menu.addEventListener('click', (e) => {
         //set aria-expanded state
         if(menu.getAttribute("aria-expanded")=="true"){
           menu.setAttribute("aria-expanded", "false");
@@ -16,7 +16,7 @@
         filterOp.classList.toggle('open');
         e.stopPropagation();
       });
-      main.addEventListener('click', function() {
+      main.addEventListener('click', () =>{
         menu.setAttribute("aria-expanded", "false");
         filterOp.classList.remove('open');
       });

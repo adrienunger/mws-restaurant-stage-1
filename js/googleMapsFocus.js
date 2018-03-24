@@ -1,16 +1,16 @@
-setTimeout(function(){},5000);
+setTimeout( () => {},5000);
   removeTabfocusFromMap = () => {
-    window.onload = function () {
+    window.onload = () =>{
       const gmap = document.querySelector('#map');
       gmapDesc = gmap.querySelectorAll('*');
-      gmapDesc.forEach(function(desc) {
+      gmapDesc.forEach( (desc) =>{
         desc.setAttribute("tabindex", "-1");
       }, this);
     }
   }
   document.getElementById("map").onload = removeTabfocusFromMap();
 
-  window.onload = function () {
+  window.onload = () =>{
     const iframe = document.querySelector('iframe');
     iframe.title = "Google Maps";
   }
