@@ -49,28 +49,32 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   text-transform: uppercase;
 }
 /* ====================== Navigation ====================== */
-nav {
+header {
   background-color: #252831;
   text-align:center;
-  padding: 1em;
+
 }
-nav h1 {
+header h1 {
   margin: auto;
+  padding: 1rem;
 }
-nav h1 a {
+header h1 a {
   color: #fff;
   font-size: 1.3em;
   font-weight: 200;
   letter-spacing: 10px;
   text-transform: uppercase;
+}
+nav{
 
 }
 #breadcrumb {
     padding: 12px 40px 14px;
     list-style: none;
-    background-color: #eee;
+    background-color: rgb(235, 235, 235);
     font-size: 1.2em;
     margin: 0;
+    text-align: left;
 }
 
 /* Display list items side by side */
@@ -323,6 +327,17 @@ nav h1 a {
 .rev-date{
   display: inline-block;
   float: right;
+}
+
+.skip-link{
+  position: absolute;
+  left: -300px;
+  top: 0;
+  margin-left: 2em;
+}
+.skip-link:focus{
+  position: relative;
+  left: 0;
 }
 
 /* ====================== Media Query Breakpoints ====================== */
