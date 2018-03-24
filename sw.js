@@ -12,8 +12,11 @@ self.addEventListener('install', (event) => {
         'js/dbhelper.js',
         'js/googleMapsFocus.js',
         'js/restaurant_info.js',
+        'js/registerServiceWorker.js',
         'css/styles.css',
-        'data/restaurants.json'
+        'data/restaurants.json',
+        'restaurant.html',
+        'index.html'
         ]);
     }));
   });
