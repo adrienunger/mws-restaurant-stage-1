@@ -139,7 +139,7 @@ nav{
   background-color: #f3f3f3;
   list-style: outside none none;
   margin: 0;
-  padding: 30px 15px 60px;
+  padding: 0 1em 2em;
   text-align: center;
 }
 #restaurants-list li {
@@ -296,15 +296,17 @@ nav{
 #menu{
   display: inline-block;
   position: relative;
-  padding-top: 1em;
-  padding-left: 1em;
+  margin-top: 1.3em;
+  margin-left: 1.3em;
   display: none;
 
 }
 #menu svg{
   width: 36px;
   fill: #333;
-  padding-top: 0.8em;
+  padding-top: 0.4em;
+  padding-left: 0.4em;
+  padding-right: 0.4em;
 }
 
 #details-container{
@@ -355,10 +357,12 @@ nav{
     transform: translate(-300px, 0);
     /* Optionally, we animate the drawer. */
     transition: transform 0.3s ease;
+    display:none;
   }
   .filter-options.open {
     -webkit-transform: translate(0, 0);
     transform: translate(0, 0);
+    display:block;
   }
   #menu{
     display: block;
@@ -397,6 +401,9 @@ nav{
   }
   #restaurant-img, #restaurant-cuisine{
     max-width: 450px;
+  }
+  #restaurants-list{
+    padding: 1.6em 1em 4em
   }
 }
 
