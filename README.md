@@ -1,28 +1,41 @@
-# Mobile Web Specialist Certification Course
+# Restaurant Review Web-App
 ---
-#### _Three Stage Course Material Project - Restaurant Reviews_
 
-## Project Overview: Stage 1
+## Project Overview
 
-For the **Restaurant Reviews** projects, you will incrementally convert a static webpage to a mobile-ready web application. In **Stage One**, you will take a static design that lacks accessibility and convert the design to be responsive on different sized displays and accessible for screen reader use. You will also add a service worker to begin the process of creating a seamless offline experience for your users.
+This project is a web-app for reviewing restaurants and browsing through restaurant information as well as other peoples reviews.
 
-### Specification
+I've converted a very simple static webpage with only the basic functionalities in place into a feature-rich, fully-fledged progressive web-app. The original project was barely usable on a desktop browser, much less so on a mobile device. It featured no offline / caching capabilities, was neither accessible nor responsive and the data was stored locally in the project. 
 
-You have been provided the code for a restaurant reviews website. The code has a lot of issues. It’s barely usable on a desktop browser, much less a mobile device. It also doesn’t include any standard accessibility features, and it doesn’t work offline at all. Your job is to update the code to resolve these issues while still maintaining the included functionality. 
+###Features 
 
-### What do I do from here?
+- Fully responsive, mobile-ready design:
+    - Responsive images and art direction
+    - Design adapts to every viewport size
+    - Off-Canvas Pattern usage for small mobile Devices
+- Accesibility:
+    - Fulfills latest accessibility standards
+    - Screen-reader support
+    - Aria attributes
+- Progressive Web App / Offline Capabilities:
+    - ServiceWorker
+    - Caching of visited sites via Cache API
+- future-proof code:
+    - the code is written to conform with the latest JavaScript features and standards (ES6)
+    - maintains full compatibility with older browser via transpiling
 
-1. In this folder, start up a simple HTTP server to serve up the site files on your local computer. Python has some simple tools to do this, and you don't even need to know Python. For most people, it's already installed on your computer. 
 
-In a terminal, check the version of Python you have: `python -V`. If you have Python 2.x, spin up the server with `python -m SimpleHTTPServer 8000` (or some other port, if port 8000 is already in use.) For Python 3.x, you can use `python3 -m http.server 8000`. If you don't have Python installed, navigate to Python's [website](https://www.python.org/) to download and install the software.
+### How to test it?
 
-2. With your server running, visit the site: `http://localhost:8000`, and look around for a bit to see what the current experience looks like.
-3. Explore the provided code, and make start making a plan to implement the required features in three areas: responsive design, accessibility and offline use.
-4. Write code to implement the updates to get this site on its way to being a mobile-ready website.
+Start a simple HTTP server in the folder to serve the files on your local computer over the network.
 
-### Note about ES6
+- Python 2:
+        `python -m SimpleHTTPServer 8000`
 
-Most of the code in this project has been written to the ES6 JavaScript specification for compatibility with modern web browsers and future proofing JavaScript code. As much as possible, try to maintain use of ES6 in any additional JavaScript you write. 
+- Python 3:
+        `python3 -m http.server 8000`
+
+Visit the Site on `http://localhost:8000`
 
 
 
