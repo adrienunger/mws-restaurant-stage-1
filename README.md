@@ -27,7 +27,7 @@ I've converted a very simple static webpage with only the basic functionalities 
 
 ### How to test it?
 
-Start a simple HTTP server in the folder to serve the files on your local computer over the network.
+Start a simple HTTP server in the "/dist" folder to serve the files on your local computer over the network.
 
 - Python 2:
         `python -m SimpleHTTPServer 8000`
