@@ -10,7 +10,6 @@ self.addEventListener('install', (event) => {
         'js/all_index.js',
         'js/all_restaurant.js',
         'css/styles.css',
-        'data/restaurants.json',
         'restaurant.html',
         'index.html'
         ]);
