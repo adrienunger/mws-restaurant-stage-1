@@ -39,6 +39,7 @@ class DBHelper {
     .then(response => response.json())
     .then(json =>{
       const restaurants = json;
+      storeRestaurantData(restaurants);
       callback(null, restaurants);
     })
     .catch(e =>{

@@ -45,7 +45,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('scripts-index', function() {
-	return gulp.src(['js/dbhelper.js', 'js/main.js', 'js/off_canvas.js', 'js/googleMapsFocus.js', 'js/registerServiceWorker.js'])
+	return gulp.src(['js/dbhelper.js', 'js/main.js', 'js/off_canvas.js', 'js/googleMapsFocus.js', 'js/registerServiceWorker.js', 'js/idbData.js'])
 		.pipe(sourcemaps.init())
 		.pipe(babel())
 		.pipe(concat('all_index.js'))
@@ -54,7 +54,7 @@ gulp.task('scripts-index', function() {
 });
 
 gulp.task('scripts-restaurant', function() {
-	return gulp.src(['js/dbhelper.js', 'js/restaurant_info.js', 'js/googleMapsFocus.js', 'js/registerServiceWorker.js'])
+	return gulp.src(['js/dbhelper.js', 'js/restaurant_info.js', 'js/googleMapsFocus.js', 'js/registerServiceWorker.js', 'js/idbData.js'])
 		.pipe(sourcemaps.init())
 		.pipe(babel())
 		.pipe(concat('all_restaurant.js'))
@@ -63,7 +63,7 @@ gulp.task('scripts-restaurant', function() {
 });
 
 gulp.task('scripts-dist-index', function() {
-	return gulp.src(['js/dbhelper.js', 'js/main.js', 'js/off_canvas.js', 'js/googleMapsFocus.js', 'js/registerServiceWorker.js'])
+	return gulp.src(['js/dbhelper.js', 'js/main.js', 'js/off_canvas.js', 'js/googleMapsFocus.js', 'js/registerServiceWorker.js', 'js/idbData.js'])
 		.pipe(sourcemaps.init())
 		.pipe(babel())
 		.pipe(concat('all_index.js'))
@@ -73,7 +73,7 @@ gulp.task('scripts-dist-index', function() {
 });
 
 gulp.task('scripts-dist-restaurant', function() {
-	return gulp.src(['js/dbhelper.js', 'js/restaurant_info.js', 'js/googleMapsFocus.js', 'js/registerServiceWorker.js'])
+	return gulp.src(['js/dbhelper.js', 'js/restaurant_info.js', 'js/googleMapsFocus.js', 'js/registerServiceWorker.js', 'js/idbData.js'])
 		.pipe(sourcemaps.init())
 		.pipe(babel())
 		.pipe(concat('all_restaurant.js'))
