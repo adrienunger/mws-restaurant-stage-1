@@ -8,6 +8,12 @@ var babel = require('gulp-babel');
 var sourcemaps = require('gulp-sourcemaps');
 var imagemin = require('gulp-imagemin');
 
+
+gulp.task('copy-libs', function() {
+	return gulp.src('./lib/**/*')
+		.pipe(gulp.dest('./dist/lib'));
+});
+
 gulp.task('copy-html', function() {
 	return gulp.src('./*.html')
 		.pipe(gulp.dest('./dist'));
@@ -77,7 +83,7 @@ gulp.task('scripts-dist-restaurant', function() {
 });
 
 
-gulp.task('default', gulp.series(gulp.parallel('copy-html', 'copy-images', 'copy-sw', 'styles', 'scripts-index', 'scripts-restaurant'), function() {
+gulp.task('default', gulp.series(gulp.parallel('copy-libs','copy-html', 'copy-images', 'copy-sw', 'styles', 'scripts-index', 'scripts-restaurant'), function() {
 	gulp.watch('sass/**/*.scss').on('all', gulp.parallel('styles'));
 	gulp.watch('./*.html').on('all', gulp.parallel('copy-html'));
 	gulp.watch('./sw.js').on('all', gulp.parallel('copy-sw'));
@@ -92,6 +98,7 @@ gulp.task('default', gulp.series(gulp.parallel('copy-html', 'copy-images', 'copy
 }));
 
 gulp.task('dist', gulp.parallel(
+	'copy-libs',
 	'copy-html',
 	'copy-images',
 	'copy-sw',
