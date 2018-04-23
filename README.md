@@ -39,3 +39,8 @@ Visit the Site on `http://localhost:8000`
 
 
 
+### Credits/Attribution
+Burger Icons used in this project by: https://creativemarket.com/BomSymbols
+https://www.iconfinder.com/icons/2427852/burger_cheeseburger_fast_food_food_junk_food_icon#size=256
+
+

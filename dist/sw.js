@@ -10,6 +10,7 @@ self.addEventListener('install', (event) => {
         'js/all_index.js',
         'js/all_restaurant.js',
         'lib/idb/lib/idb.js',
+        'manifest.json',
         'css/styles.css',
         'restaurant.html',
         'index.html'

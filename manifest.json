@@ -1,0 +1,25 @@
+{
+  "short_name": "Restaurant Reviews",
+  "name": "Adriens Restaurant Reviews",
+  "scope": "/",
+  "icons": [{
+    "src": "/img_resp/Burger-64.png",
+    "sizes": "64x64",
+    "type": "image/png"
+  },
+  {
+    "src": "/img_resp/Burger-256.png",
+    "sizes": "256x256",
+    "type": "image/png"
+  },
+  {
+    "src": "/img_resp/Burger-512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#317EFB",
+  "theme_color": "#317EFB",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "/"
+}
