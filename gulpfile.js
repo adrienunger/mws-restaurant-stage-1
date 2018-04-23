@@ -60,6 +60,7 @@ gulp.task('scripts-index', function() {
 		.pipe(sourcemaps.init())
 		.pipe(babel())
 		.pipe(concat('all_index.js'))
+		.pipe(uglify())
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest('dist/js'));
 });
@@ -69,6 +70,7 @@ gulp.task('scripts-restaurant', function() {
 		.pipe(sourcemaps.init())
 		.pipe(babel())
 		.pipe(concat('all_restaurant.js'))
+		.pipe(uglify())
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest('dist/js'));
 });
