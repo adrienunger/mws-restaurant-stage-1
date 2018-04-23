@@ -7,7 +7,7 @@ This project is a web app for reviewing restaurants and browsing through restaur
 
 I've converted a very simple static webpage with only the basic functionalities in place into a feature-rich, fully-fledged progressive web-app. The original project was barely usable on a desktop browser, much less so on a mobile device. It featured no offline / caching capabilities, was neither accessible nor responsive and the data was stored locally in the project. 
 
-### newly implemented Features 
+### Features 
 
 - **Fully responsive, mobile-ready design:**
     - Responsive images and art direction
@@ -38,7 +38,7 @@ I've converted a very simple static webpage with only the basic functionalities 
 		- Seperate tasks for development and distribution
 - **Site Performance + Quality:**
 	- optimized to satisfy Google Chrome Lighthouse audits
-		-Scoring:
+		- Scoring:
 			- Progressive Web Apps: >90 
 			- Performance: >70 
 			- Accessibility: >90
