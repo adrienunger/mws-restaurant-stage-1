@@ -25,7 +25,7 @@ I've converted a very simple static webpage with only the basic functionalities 
     - Web App Manifest defining app behaviour when installed on a smartphones homescreen
 - **Future-proof code:**
     - the code is written to conform with the latest JavaScript features and standards (ES6)
-    - maintains full compatibility with older browser via transpiling
+    - maintains full compatibility with older browser via transpiling (work in progress; currently disabled)
     - Asynchronous data retrieval using the Fetch API
 - **Sophisticated Build Process:**
 	- Project Structure separating development and distribution/production code
@@ -42,6 +42,8 @@ I've converted a very simple static webpage with only the basic functionalities 
 			- Progressive Web Apps: >90 
 			- Performance: >70 
 			- Accessibility: >90
+	- Advanced performance optimising techniques:
+		- lazyloading images (with responsively-lazy library)
 
 
 
