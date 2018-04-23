@@ -1,5 +1,3 @@
-//import * as 'idb' from './lib/idb/lib/idb.js';
-
 var dbPromise = idb.open('jsonResp', 1, function(upgradeDb) {
     upgradeDb.createObjectStore('restaurantData');
   });
@@ -16,7 +14,7 @@ function storeRestaurantData(jsonData){
 }
 
 function getRestaurantData(){
-	dbPromise.then(db =>{
+	return dbPromise.then(db =>{
 		var tx = db.transaction('restaurantData');
 		var restaurantDataStore = tx.objectStore('restaurantData');
 		return restaurantDataStore.get('restaurants');

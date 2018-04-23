@@ -12,42 +12,45 @@ class DBHelper {
     return `http://localhost:${port}/restaurants`;
   }
 
-  /**
-   * Fetch all restaurants.
-   */
-  /*static fetchRestaurants(callback) {
-    let xhr = new XMLHttpRequest();
-    xhr.open('GET', DBHelper.DATABASE_URL);
-    xhr.onload = () => {
-      if (xhr.status === 200) { // Got a success response from server!
-        const json = JSON.parse(xhr.responseText);
-        console.log(json);
-        console.log(typeof json);
-        const restaurants = json;
-        callback(null, restaurants);
-      } else { // Oops!. Got an error from server.
-        const error = (`Request failed. Returned status of ${xhr.status}`);
-        callback(error, null);
-      }
-    };
-    xhr.send();
-  }*/
-
 
   static fetchRestaurants(callback) {
-    fetch(DBHelper.DATABASE_URL)
-    .then(response => response.json())
-    .then(json =>{
-      const restaurants = json;
-      storeRestaurantData(restaurants);
-      callback(null, restaurants);
-    })
-    .catch(e =>{
-      const error = (`Request failed. Returned status of ${e}`);
-      console.log(error);
-      callback(error, null);
+    getRestaurantData().then(restaurants => {
+      //check if there is restaurant data stored in the db
+      if (restaurants !== undefined){
+        //restaurant data is stored. execute the callback => pass the data to the application
+        callback(null, restaurants)
+        //console.log('successfully served from idb');
+        //after executing the callback fetch data from the network for a possibly newer version and save it to db
+        fetch(DBHelper.DATABASE_URL)
+        .then(response => response.json())
+        .then(json =>{
+          const restaurants = json;
+          storeRestaurantData(restaurants);
+        })
+        .catch(e =>{
+          const error = (`Request failed. Returned status of ${e}`);
+          console.log(error);
+          callback(error, null);
+        });
+
+      }else{
+        //no data saved in the db => fetch it from the network, pass it to the application and save it in db
+        fetch(DBHelper.DATABASE_URL)
+        .then(response => response.json())
+        .then(json =>{
+          const restaurants = json;
+          storeRestaurantData(restaurants);
+          callback(null, restaurants);
+        })
+        .catch(e =>{
+          const error = (`Request failed. Returned status of ${e}`);
+          console.log(error);
+          callback(error, null);
+        });
+      }
+    }).catch(e =>{
+      console.log(`Error while trying to get restaurant data via indexedDB: ${e}`);
     });
- 
   }
 
 

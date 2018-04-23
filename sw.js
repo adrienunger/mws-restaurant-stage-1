@@ -9,6 +9,7 @@ self.addEventListener('install', (event) => {
       return cache.addAll(['/',
         'js/all_index.js',
         'js/all_restaurant.js',
+        'lib/idb/lib/idb.js',
         'css/styles.css',
         'restaurant.html',
         'index.html'
