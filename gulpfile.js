@@ -69,21 +69,21 @@ gulp.task('scripts-restaurant', function() {
 
 gulp.task('scripts-dist-index', function() {
 	return gulp.src(['js/dbhelper.js', 'js/main.js', 'js/off_canvas.js', 'js/googleMapsFocus.js', 'js/registerServiceWorker.js', 'js/idbData.js'])
-		.pipe(sourcemaps.init())
+		//.pipe(sourcemaps.init())
 		.pipe(babel())
 		.pipe(concat('all_index.js'))
 		.pipe(uglify())
-		.pipe(sourcemaps.write())
+		//.pipe(sourcemaps.write())
 		.pipe(gulp.dest('dist/js'));
 });
 
 gulp.task('scripts-dist-restaurant', function() {
 	return gulp.src(['js/dbhelper.js', 'js/restaurant_info.js', 'js/googleMapsFocus.js', 'js/registerServiceWorker.js', 'js/idbData.js'])
-		.pipe(sourcemaps.init())
+		//.pipe(sourcemaps.init())
 		.pipe(babel())
 		.pipe(concat('all_restaurant.js'))
 		.pipe(uglify())
-		.pipe(sourcemaps.write())
+		//.pipe(sourcemaps.write())
 		.pipe(gulp.dest('dist/js'));
 });
 
