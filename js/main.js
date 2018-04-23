@@ -144,9 +144,16 @@ createRestaurantHTML = (restaurant) => {
   li.append(name);
 
   const image = document.createElement('img');
-  image.className = 'restaurant-img';
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  image.setAttribute("srcset", `/img_resp/${restaurant.id}-300.jpg 1x, /img_resp/${restaurant.id}-600.jpg 2x`);
+  image.className = 'restaurant-img responsively-lazy';
+  //check if image data is available in the restaurant data
+  if (DBHelper.imageUrlForRestaurant(restaurant) !== '/img/undefined'){
+    image.src = `${DBHelper.imageUrlForRestaurant(restaurant)}.jpg`;
+  }else{
+    image.src = `/img/${restaurant.id}.jpg`;
+  }
+
+  image.setAttribute("srcset", "data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==");
+  image.setAttribute("data-srcset", `/img_resp/${restaurant.id}-300.jpg 1x, /img_resp/${restaurant.id}-600.jpg 2x`);
   image.setAttribute("alt", `An image of the restaurant ${restaurant.name} in ${restaurant.neighborhood}.`);
   li.append(image);
 

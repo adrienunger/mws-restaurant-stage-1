@@ -30,6 +30,12 @@ gulp.task('copy-sw', function() {
 });
 
 gulp.task('copy-images', function() {
+	return gulp.src('img/*')
+		.pipe(imagemin([imagemin.jpegtran({progressive: true})]))
+		.pipe(gulp.dest('dist/img'));
+});
+
+gulp.task('copy-resp-images', function() {
 	return gulp.src('img_resp/*')
 		.pipe(imagemin([imagemin.jpegtran({progressive: true})]))
 		.pipe(gulp.dest('dist/img_resp'));
@@ -88,7 +94,7 @@ gulp.task('scripts-dist-restaurant', function() {
 });
 
 
-gulp.task('default', gulp.series(gulp.parallel('copy-manifest','copy-libs','copy-html', 'copy-images', 'copy-sw', 'styles', 'scripts-index', 'scripts-restaurant'), function() {
+gulp.task('default', gulp.series(gulp.parallel('copy-manifest','copy-libs','copy-html', 'copy-images','copy-resp-images', 'copy-sw', 'styles', 'scripts-index', 'scripts-restaurant'), function() {
 	gulp.watch('sass/**/*.scss').on('all', gulp.parallel('styles'));
 	gulp.watch('./*.html').on('all', gulp.parallel('copy-html'));
 	gulp.watch('./sw.js').on('all', gulp.parallel('copy-sw'));
@@ -107,6 +113,7 @@ gulp.task('dist', gulp.parallel(
 	'copy-libs',
 	'copy-html',
 	'copy-images',
+	'copy-resp-images',
 	'copy-sw',
 	'styles',
 	'scripts-dist-index',
