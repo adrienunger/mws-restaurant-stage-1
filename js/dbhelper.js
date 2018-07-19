@@ -9,7 +9,7 @@ class DBHelper {
    */
   static get DATABASE_URL() {
     const port = 1337 // Change this to your server port
-    return `http://localhost:${port}/restaurants`;
+    return `http://localhost:${port}`;
   }
 
 
@@ -21,7 +21,7 @@ class DBHelper {
         callback(null, restaurants)
         //console.log('successfully served from idb');
         //after executing the callback fetch data from the network for a possibly newer version and save it to db
-        fetch(DBHelper.DATABASE_URL)
+        fetch(`${DBHelper.DATABASE_URL}/restaurants`)
         .then(response => response.json())
         .then(json =>{
           const restaurants = json;
@@ -35,7 +35,7 @@ class DBHelper {
 
       }else{
         //no data saved in the db => fetch it from the network, pass it to the application and save it in db
-        fetch(DBHelper.DATABASE_URL)
+        fetch(`${DBHelper.DATABASE_URL}/restaurants`)
         .then(response => response.json())
         .then(json =>{
           const restaurants = json;
@@ -54,6 +54,48 @@ class DBHelper {
   }
 
 
+  static fetchReviews(callback) {
+    getReviewData().then(reviews => {
+      //check if there is review data stored in the db
+      if (reviews !== undefined){
+        //review data is stored. execute the callback => pass the data to the application
+        callback(null, reviews)
+        //console.log('successfully served from idb');
+        //after executing the callback fetch data from the network for a possibly newer version and save it to db
+        fetch(`${DBHelper.DATABASE_URL}/reviews`)
+        .then(response => response.json())
+        .then(json =>{
+          const reviews = json;
+          storeReviewData(reviews);
+        })
+        .catch(e =>{
+          const error = (`Request failed. Returned status of ${e}`);
+          console.log(error);
+          callback(error, null);
+        });
+
+      }else{
+        //no data saved in the db => fetch it from the network, pass it to the application and save it in db
+        fetch(`${DBHelper.DATABASE_URL}/reviews`)
+        .then(response => response.json())
+        .then(json =>{
+          const reviews = json;
+          storeReviewData(reviews);
+          callback(null, reviews);
+        })
+        .catch(e =>{
+          const error = (`Request failed. Returned status of ${e}`);
+          console.log(error);
+          callback(error, null);
+        });
+      }
+    }).catch(e =>{
+      console.log(`Error while trying to get review data via indexedDB: ${e}`);
+    });
+  }
+
+
+
   /**
    * Fetch a restaurant by its ID.
    */
@@ -68,6 +110,25 @@ class DBHelper {
           callback(null, restaurant);
         } else { // Restaurant does not exist in the database
           callback('Restaurant does not exist', null);
+        }
+      }
+    });
+  }
+
+    /**
+   * Fetch a reviews by restaurant ID.
+   */
+  static fetchReviewsByRestaurantId(id, callback) {
+    // fetch all reviews with proper error handling.
+    DBHelper.fetchReviews((error, all_reviews) => {
+      if (error) {
+        callback(error, null);
+      } else {
+        const reviews = all_reviews.filter(r => r.restaurant_id == id);
+        if (reviews) { // Got the review
+          callback(null, reviews);
+        } else { // Reviews do not exist in the database
+          callback('Reviews do not exist', null);
         }
       }
     });
