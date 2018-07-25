@@ -263,6 +263,8 @@ class DBHelper {
     .then(response => {
       console.log('Changed restaurant status to ' + shouldBeFavourite + ' on the server.');
 
+      //Little helper to update my db
+      DBHelper.fetchRestaurants(()=>null);
       //updateFavourite(restaurantId,shouldBeFavourite);
       //return response.json()
     })
