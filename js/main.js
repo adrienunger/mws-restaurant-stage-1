@@ -139,10 +139,13 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
 
+  //favourite section
   const favourite = document.createElement('button');
   favourite.innerHTML = '★';
   favourite.classList.add('fav-button');
-  if (restaurant.is_favorite){
+    //the following line is for boolean conversion
+    let isFavourite = (restaurant.is_favorite == "true");
+  if (isFavourite){
     favourite.classList.add('fav-yes');
     favourite.setAttribute('aria-label', 'Remove as favourite')
   }else{
@@ -150,8 +153,19 @@ createRestaurantHTML = (restaurant) => {
     favourite.setAttribute('aria-label', 'Mark as favourite')
   }
 
-  //TODO: onclick method for the button sending favourite request to server und toggle element
+  favourite.onclick = function(){
+    //the following line is for boolean conversion
+    let isFavourite = (restaurant.is_favorite == "true");
+    DBHelper.toggleFavouriteRestaurant(restaurant.id, !isFavourite);
+     //string conversion here is necessary due to the bug, that the server doesn't save the values properly as boolean.
+     //without the string conversion here the code for favourite toggling breaks
+    restaurant.is_favorite = String(!isFavourite); 
+    toggleFavouriteLocally(favourite, !isFavourite);
+  };
+
   li.append(favourite);
+  //favourite section end
+
 
   const name = document.createElement('h3');
   name.innerHTML = restaurant.name;
@@ -202,4 +216,20 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     });
     self.markers.push(marker);
   });
+}
+
+
+/**
+*
+**/
+function toggleFavouriteLocally(htmlElement, isFavourite){
+  if(isFavourite){
+    htmlElement.classList.remove('fav-no');
+    htmlElement.classList.add('fav-yes');
+    htmlElement.setAttribute('aria-label', 'Remove as favourite');
+  }else{
+    htmlElement.classList.remove('fav-yes');
+    htmlElement.classList.add('fav-no');
+    htmlElement.setAttribute('aria-label', 'Mark as favourite');
+  }
 }

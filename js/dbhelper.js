@@ -251,4 +251,25 @@ class DBHelper {
     return marker;
   }
 
+
+  /**
+   * Toggle the favourite state of a restaurant
+   */
+  static toggleFavouriteRestaurant(restaurantId, shouldBeFavourite) {
+    const putURL = `http://localhost:1337/restaurants/${restaurantId}/?is_favorite=${shouldBeFavourite}`;
+    fetch(putURL,{
+      method: 'PUT'
+    })
+    .then(response => {
+      console.log('Changed restaurant status to ' + shouldBeFavourite + ' on the server.');
+
+      //updateFavourite(restaurantId,shouldBeFavourite);
+      //return response.json()
+    })
+    .catch(e =>{
+      const error = (`Request failed. Returned status of ${e}`);
+      console.log(error);
+    });
+  }
+
 }

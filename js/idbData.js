@@ -1,4 +1,4 @@
-var dbPromise = idb.open('jsonResp', 2, function(upgradeDb) {
+var dbPromise = idb.open('jsonResp', 3, function(upgradeDb) {
     switch (upgradeDb.oldVersion) {
 	    case 0:
 	        upgradeDb.createObjectStore('restaurantData');
@@ -40,5 +40,20 @@ function getReviewData(){
 		var tx = db.transaction('reviewData');
 		var restaurantDataStore = tx.objectStore('reviewData');
 		return restaurantDataStore.get('reviews');
+	});
+}
+
+
+//TODO: doesn't work yet
+function updateFavourite(restaurantId, isFavourite){
+	return dbPromise.then(db =>{
+		var tx = db.transaction('restaurantData','readwrite');
+		var restaurantDataStore = tx.objectStore('restaurantData');
+		restaurantDataStore.get('restaurants')
+		.then(restaurants =>{
+			restaurants[restaurantId-1].is_favorite = isFavourite;
+			restaurantDataStore.put('restaurants');
+			return tx.complete;
+		})
 	});
 }
