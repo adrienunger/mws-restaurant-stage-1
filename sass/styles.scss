@@ -198,6 +198,7 @@ header h1 a {
   line-height: 1.3;
   margin: 20px 0 10px;
   text-transform: uppercase;
+  text-align: left;
 }
 #restaurants-list p {
   margin: 0;
@@ -227,6 +228,28 @@ header h1 a {
   font-weight: bold;
   padding-top: 1em;
 }
+
+.fav-button{
+  color: #cca300;
+  float: right;
+  border: none;
+  min-height: 48px;
+  min-width: 48px;
+  font-size: 2em;
+  background-color: #ffffff;
+}
+
+.fav-button:hover{
+background-color: #ff441a;
+}
+
+.fav-yes{
+  color: #cca300;
+}
+.fav-no{
+  color: #333;
+}
+
 
 /* ====================== Restaurant Details ====================== */
 .inside header {

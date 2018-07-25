@@ -139,6 +139,20 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
 
+  const favourite = document.createElement('button');
+  favourite.innerHTML = '★';
+  favourite.classList.add('fav-button');
+  if (restaurant.is_favorite){
+    favourite.classList.add('fav-yes');
+    favourite.setAttribute('aria-label', 'Remove as favourite')
+  }else{
+    favourite.classList.add('fav-no');
+    favourite.setAttribute('aria-label', 'Mark as favourite')
+  }
+
+  //TODO: onclick method for the button sending favourite request to server und toggle element
+  li.append(favourite);
+
   const name = document.createElement('h3');
   name.innerHTML = restaurant.name;
   li.append(name);
