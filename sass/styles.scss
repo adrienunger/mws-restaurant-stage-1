@@ -299,24 +299,25 @@ background-color: #ff441a;
   text-transform: uppercase;
 	width: 90%;
 }
-#restaurant-container, #reviews-container, #map-container {
+#restaurant-container, #reviews-container, #map-container, #reviews-form-container {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
   width: 100%;
 }
-#reviews-container {
-  padding: 30px 40px 20px;
-}
-#reviews-container h2 {
+
+#reviews-container h2, #reviews-form-container h2 {
   color: #f14c00;
   font-size: 1.5em;
   font-weight: 600;
   letter-spacing: -1px;
   padding-bottom: 1pt;
+  margin-top: 1em;
+  margin-left: 2rem;
 }
 #reviews-list {
   margin: 0;
   padding: 0;
+  margin-left: 2rem;
 }
 #reviews-list li {
   background-color: #fff;
@@ -358,7 +359,35 @@ background-color: #ff441a;
   float: right;
 }
 
+.form{
+  width: 80%;
+  margin-left: 2rem;
+}
 
+.form-label{
+  width: 100%;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.form-author, .form-rating, .form-comment{
+  width: 100%;
+  padding: 1em;
+}
+
+.form-submit-btn{
+    margin-bottom: 2em;
+    margin-top: 2em;
+    min-width: 48px;
+    padding-top: 1.4em;
+    padding-bottom: 1.4em;
+    padding-left: 1.8em;
+    padding-right: 1.8em;
+}
+
+#reviews-form-container{
+  max-width: 600px;
+}
 /* ====================== Skip-Link ====================== */
 
 .skip-link {
@@ -447,6 +476,16 @@ background-color: #ff441a;
   }
 }
 
+@media screen and (min-width:1101px) {
+  #reviews-container{
+    width: 60%;
+  }
+
+  #reviews-form-container{
+    width: 40%;
+  }
+}
+
 @media screen and (min-width:1301px) {
   #restaurant-container {
     width: 40%;
@@ -454,7 +493,16 @@ background-color: #ff441a;
   .inside #map-container {
     width: 60%;
   }
+
+  #reviews-container{
+    width: 70%;
+  }
+
+  #reviews-form-container{
+    width: 30%;
+  }
 }
+
 @media screen and (min-width:1701px) {
   #restaurant-container {
     width: 30%;
