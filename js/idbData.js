@@ -32,7 +32,7 @@ function storeReviewData(jsonData){
 		var reviewDataStore = tx.objectStore('reviewData');
 		reviewDataStore.put(jsonData, 'reviews');
 		return tx.complete;
-	});
+	}).then(()=>console.log("stored successfully"));
 }
 
 function getReviewData(){

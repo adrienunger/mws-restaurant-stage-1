@@ -4,6 +4,38 @@ var imgsCache = 'restaurants-imgs';
 var allCaches = [shellCache, dynamicCache, imgsCache];
 
 
+
+//start Workbox stuff here
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js');
+
+if (workbox) {
+  console.log(`Yay! Workbox is loaded 🎉`);
+} else {
+  console.log(`Boo! Workbox didn't load 😬`);
+}
+
+const bgSyncPlugin = new workbox.backgroundSync.Plugin('requestQueue', {
+  maxRetentionTime: 24 * 60 // Retry for max of 24 Hours
+});
+
+workbox.routing.registerRoute(
+  /http:\/\/localhost:1337\/reviews/,
+  workbox.strategies.networkOnly({
+    plugins: [bgSyncPlugin]
+  }),
+  'POST'
+);
+
+workbox.routing.registerRoute(
+  new RegExp('http://localhost:1337/restaurants/.*/\?is_favorite=.*'),
+  workbox.strategies.networkOnly({
+    plugins: [bgSyncPlugin]
+  }),
+  'PUT'
+);
+
+//end Workbox stuff here
+
 self.addEventListener('install', (event) => {
     event.waitUntil(caches.open(shellCache).then( (cache) => {
       return cache.addAll(['/',
@@ -48,7 +80,14 @@ self.addEventListener('fetch', (event) => {
         }
     }
 
-    //check if the request was already chached and return it, 
+    //check if its a request for json data from the database. If so return without caching
+    if ((requestUrl == 'http://localhost:1337/reviews') || (requestUrl == 'http://localhost:1337/restaurants')){
+            return fetch(event.request).then( (networkResponse) => {
+                    return networkResponse;
+                });
+        }
+
+    //check if the request was already cached and return it, 
     //otherwise fetch from the network, cache it in the dynamicCache and return it
     event.respondWith(caches.match(event.request).then( (response) =>{
         if(response){
