@@ -59,11 +59,11 @@
       <!-- Beginning Add reviews -->
       <section id="reviews-form-container">
         <h2>Add review</h2>
-        <form action="" class="form flex-container">
+        <form class="form flex-container">
           <label class="form-label" id="author-label">Author:</label>
-          <input type="text" name="Author" class="form-author" placeholder="Author" aria-labelledby="author-label">
+          <input type="text" name="Author" id="form-author" class="form-author" placeholder="Author" aria-labelledby="author-label">
           <label class="form-label" id="rating-label">Rating:</label>
-          <select name="Rating" class="form-rating" aria-labelledby="rating-label">
+          <select name="Rating" id="form-rating" class="form-rating" aria-labelledby="rating-label">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -71,8 +71,8 @@
             <option value="5">5</option>
           </select>
           <label class="form-label" id="comment-label">Comment:</label>
-          <textarea name="comment" class="form-comment" rows="5" cols="30" placeholder="Write your comment." aria-labelledby="comment-label"></textarea>
-          <button type="button" class="form-submit-btn" onclick="">Submit</button>
+          <textarea name="comment" id="form-comment" class="form-comment" rows="5" cols="30" placeholder="Write your comment." aria-labelledby="comment-label"></textarea>
+          <button type="button" class="form-submit-btn" onclick="addReview()">Submit</button>
         </form>
       </section>
       <!-- End Add reviews -->

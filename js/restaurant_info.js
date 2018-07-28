@@ -51,7 +51,7 @@ fetchRestaurantFromURL = (callback) => {
 /**
  * Get current reviews from page URL.
  */
-fetchReviewsFromURL = (callback) => {
+fetchReviewsFromURL = () => {
   if (self.reviews) { // reviews already fetched!
     callback(null, self.reviews)
     return;
@@ -68,7 +68,6 @@ fetchReviewsFromURL = (callback) => {
         return;
       }
       fillReviewsHTML();
-      callback(null, reviews)
     });
   }
 }
@@ -161,6 +160,9 @@ createReviewHTML = (review) => {
   const date = document.createElement('p');
   date.setAttribute("class", "rev-date");
   date.innerHTML = new Date(review.updatedAt).toLocaleString('en-GB', { timeZone: 'UTC' });
+  if (date.innerHTML == "Invalid Date") {
+    date.innerHTML = review.updatedAt;
+  } 
   li.appendChild(date);
 
   const rating = document.createElement('p');
@@ -200,4 +202,22 @@ getParameterByName = (name, url) => {
   if (!results[2])
     return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+
+/*
+** Adds a review to the database
+*/
+addReview = () => {
+  let author = document.getElementById('form-author').value;
+  let rating = document.getElementById('form-rating').value;
+  let comment = document.getElementById('form-comment').value;
+  let review = {
+    restaurant_id: self.restaurant.id,
+    name: author,
+    rating: rating,
+    comments: comment
+  }
+  //console.log(review);
+  DBHelper.addReview(review);
 }

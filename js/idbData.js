@@ -1,4 +1,4 @@
-var dbPromise = idb.open('jsonResp', 3, function(upgradeDb) {
+var dbPromise = idb.open('jsonResp', 2, function(upgradeDb) {
     switch (upgradeDb.oldVersion) {
 	    case 0:
 	        upgradeDb.createObjectStore('restaurantData');
@@ -29,8 +29,8 @@ function getRestaurantData(){
 function storeReviewData(jsonData){
 	dbPromise.then(db =>{
 		var tx = db.transaction('reviewData','readwrite');
-		var restaurantDataStore = tx.objectStore('reviewData');
-		restaurantDataStore.put(jsonData, 'reviews');
+		var reviewDataStore = tx.objectStore('reviewData');
+		reviewDataStore.put(jsonData, 'reviews');
 		return tx.complete;
 	});
 }
@@ -38,8 +38,8 @@ function storeReviewData(jsonData){
 function getReviewData(){
 	return dbPromise.then(db =>{
 		var tx = db.transaction('reviewData');
-		var restaurantDataStore = tx.objectStore('reviewData');
-		return restaurantDataStore.get('reviews');
+		var reviewDataStore = tx.objectStore('reviewData');
+		return reviewDataStore.get('reviews');
 	});
 }
 
@@ -52,7 +52,7 @@ function updateFavourite(restaurantId, isFavourite){
 		restaurantDataStore.get('restaurants')
 		.then(restaurants =>{
 			restaurants[restaurantId-1].is_favorite = isFavourite;
-			restaurantDataStore.put('restaurants');
+			restaurantDataStore.put('restaurants'); //put possibly takes both, key and value 
 			return tx.complete;
 		})
 	});

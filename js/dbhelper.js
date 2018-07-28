@@ -18,7 +18,7 @@ class DBHelper {
       //check if there is restaurant data stored in the db
       if (restaurants !== undefined){
         //restaurant data is stored. execute the callback => pass the data to the application
-        callback(null, restaurants)
+        callback(null, restaurants);
         //console.log('successfully served from idb');
         //after executing the callback fetch data from the network for a possibly newer version and save it to db
         fetch(`${DBHelper.DATABASE_URL}/restaurants`)
@@ -59,7 +59,7 @@ class DBHelper {
       //check if there is review data stored in the db
       if (reviews !== undefined){
         //review data is stored. execute the callback => pass the data to the application
-        callback(null, reviews)
+        callback(null, reviews);
         //console.log('successfully served from idb');
         //after executing the callback fetch data from the network for a possibly newer version and save it to db
         fetch(`${DBHelper.DATABASE_URL}/reviews`)
@@ -79,11 +79,13 @@ class DBHelper {
         fetch(`${DBHelper.DATABASE_URL}/reviews`)
         .then(response => response.json())
         .then(json =>{
+          //console.log(json);
           const reviews = json;
           storeReviewData(reviews);
-          callback(null, reviews);
+          callback(null, reviews); //here
         })
         .catch(e =>{
+          console.log(e);
           const error = (`Request failed. Returned status of ${e}`);
           console.log(error);
           callback(error, null);
@@ -126,7 +128,7 @@ class DBHelper {
       } else {
         const reviews = all_reviews.filter(r => r.restaurant_id == id);
         if (reviews) { // Got the review
-          callback(null, reviews);
+          callback(null, reviews); //here
         } else { // Reviews do not exist in the database
           callback('Reviews do not exist', null);
         }
@@ -274,4 +276,23 @@ class DBHelper {
     });
   }
 
+
+ /**
+   * Send post request to the server to add a review to a restaurant
+   */
+  static addReview(reviewPost) {
+    const postURL = `${DBHelper.DATABASE_URL}/reviews`;
+    fetch(postURL, {
+      method: "POST",
+      body: JSON.stringify(reviewPost),
+      headers: {
+            "Content-Type": "application/json; charset=utf-8"
+        }
+    })
+    .then(response => {
+      console.log(response);
+      return response.json();
+      }) // parses response to JSON
+    .catch(error => console.error(`Fetch Error =\n`, error));
+  }
 }
