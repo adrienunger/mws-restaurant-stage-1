@@ -312,19 +312,28 @@ background-color: #ff441a;
   letter-spacing: -1px;
   padding-bottom: 1pt;
   margin-top: 1em;
+}
+
+#reviews-form-container h2{
   margin-left: 2rem;
 }
-#reviews-list {
-  margin: 0;
+
+#reviews-container h2{
+  text-align: center;
+}
+
+#reviews-list{
   padding: 0;
-  margin-left: 2rem;
 }
+
 #reviews-list li {
   background-color: #fff;
-    border: 2px solid #f3f3f3;
+  border: 2px solid #f3f3f3;
   display: block;
   list-style-type: none;
-  margin: 0 2em 2em 0;
+  margin-bottom: 2em;
+  margin-left: auto;
+  margin-right: auto;
   overflow: hidden;
   padding: 0 20px 20px;
   position: relative;
@@ -387,6 +396,8 @@ background-color: #ff441a;
 
 #reviews-form-container{
   max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 /* ====================== Skip-Link ====================== */
 
