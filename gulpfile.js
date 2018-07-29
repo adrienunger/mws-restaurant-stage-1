@@ -1,13 +1,14 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var autoprefixer = require('gulp-autoprefixer');
-var browserSync = require('browser-sync').create();
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify-es').default;
-var babel = require('gulp-babel');
-var sourcemaps = require('gulp-sourcemaps');
-var imagemin = require('gulp-imagemin');
-var webp = require('gulp-webp');
+let gulp = require('gulp');
+let sass = require('gulp-sass');
+let autoprefixer = require('gulp-autoprefixer');
+let browserSync = require('browser-sync').create();
+let concat = require('gulp-concat');
+let uglify = require('gulp-uglify-es').default;
+let babel = require('gulp-babel');
+let sourcemaps = require('gulp-sourcemaps');
+let imagemin = require('gulp-imagemin');
+let webp = require('gulp-webp');
+let cleanCSS = require('gulp-clean-css');
 
 
 gulp.task('copy-libs', function() {
@@ -58,6 +59,7 @@ gulp.task('styles', function() {
 		.pipe(autoprefixer({
 			browsers: ['last 2 versions']
 		}))
+		.pipe(cleanCSS())
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest('dist/css'))
 		.pipe(browserSync.stream());
