@@ -44,6 +44,9 @@ self.addEventListener('install', (event) => {
         'lib/idb/lib/idb.js',
         'manifest.json',
         'css/styles.css',
+        'css/styles_detail.css',
+        'css/styles_main.css',
+        'css/styles_big_screen.css',
         'restaurant.html',
         'index.html'
         ]);

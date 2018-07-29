@@ -1,0 +1,81 @@
+/* ====================== Media Query Breakpoints --- min-width > 551px ====================== */
+
+
+@media screen and (min-width:650px) {
+  .filter-options h2 {
+    display: inline-block;
+  }
+}
+
+
+/*check this again. is is max-width, not min*/
+@media screen and (max-width:850px) {
+  #restaurant-container, #restaurant-cuisine, #restaurant-hours{
+    text-align: center;
+    margin:auto;
+  }
+  #restaurant-img, #restaurant-cuisine {
+    max-width: 450px;
+  }
+}
+
+@media screen and (min-width:551px) and (max-width:850px) {
+  #map {
+    height: 50vh;
+  }
+  #restaurants-list {
+    padding: 1.2em 1em 3em
+  }
+}
+@media screen and (min-width:851px) {
+  #restaurant-container {
+    width: 50%;
+    order: -1;
+  }
+  .inside #map-container {
+    width: 50%;
+    height: 78vh;
+  }
+  #restaurant-img, #restaurant-cuisine {
+    max-width: 450px;
+  }
+  #restaurants-list {
+    padding: 1.4em 1em 3em
+  }
+}
+
+@media screen and (min-width:1101px) {
+  #reviews-container{
+    width: 60%;
+  }
+
+  #reviews-form-container{
+    width: 40%;
+  }
+}
+
+@media screen and (min-width:1301px) {
+  #restaurant-container {
+    width: 40%;
+  }
+  .inside #map-container {
+    width: 60%;
+  }
+
+  #reviews-container{
+    width: 70%;
+  }
+
+  #reviews-form-container{
+    width: 30%;
+  }
+}
+
+@media screen and (min-width:1701px) {
+  #restaurant-container {
+    width: 30%;
+  }
+  .inside #map-container {
+    width: 70%;
+  }
+}

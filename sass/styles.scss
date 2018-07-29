@@ -451,12 +451,16 @@ background-color: #ff441a;
 
 }
 
+/* ====================== Media Query Breakpoints --- min-width > 551px ====================== */
+
 @media screen and (min-width:650px) {
   .filter-options h2 {
     display: inline-block;
   }
 }
 
+
+/*check this again. is is max-width, not min*/
 @media screen and (max-width:850px) {
   #restaurant-container, #restaurant-cuisine, #restaurant-hours{
     text-align: center;

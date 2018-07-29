@@ -20,13 +20,17 @@
     "gulp-autoprefixer": "^5.0.0",
     "gulp-babel": "^7.0.1",
     "gulp-concat": "^2.6.1",
+    "gulp-gzip": "^1.4.2",
     "gulp-imagemin": "^4.1.0",
     "gulp-sourcemaps": "^2.6.4",
-    "gulp-uglify-es": "^1.0.1"
+    "gulp-uglify-es": "^1.0.1",
+    "gulp-webp": "^3.0.0"
   },
   "dependencies": {
     "grunt-responsive-images": "^0.1.6",
     "gulp-sass": "^4.0.1",
-    "idb": "^2.1.1"
+    "idb": "^2.1.1",
+    "imagemin": "^6.0.0",
+    "imagemin-webp": "^4.1.0"
   }
 }

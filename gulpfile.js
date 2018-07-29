@@ -7,6 +7,7 @@ var uglify = require('gulp-uglify-es').default;
 var babel = require('gulp-babel');
 var sourcemaps = require('gulp-sourcemaps');
 var imagemin = require('gulp-imagemin');
+var webp = require('gulp-webp');
 
 
 gulp.task('copy-libs', function() {
@@ -29,15 +30,22 @@ gulp.task('copy-sw', function() {
 		.pipe(gulp.dest('./dist'));
 });
 
+gulp.task('copy-pngs', function() {
+	return gulp.src('img_resp/*.png')
+		.pipe(gulp.dest('dist/img_resp'));
+});
+
 gulp.task('copy-images', function() {
 	return gulp.src('img/*')
 		.pipe(imagemin([imagemin.jpegtran({progressive: true})]))
+		.pipe(webp({method:6}))
 		.pipe(gulp.dest('dist/img'));
 });
 
 gulp.task('copy-resp-images', function() {
-	return gulp.src('img_resp/*')
+	return gulp.src('img_resp/*.jpg')
 		.pipe(imagemin([imagemin.jpegtran({progressive: true})]))
+		.pipe(webp({method:6}))
 		.pipe(gulp.dest('dist/img_resp'));
 });
 
@@ -114,6 +122,7 @@ gulp.task('dist', gulp.parallel(
 	'copy-manifest',
 	'copy-libs',
 	'copy-html',
+	'copy-pngs',
 	'copy-images',
 	'copy-resp-images',
 	'copy-sw',
