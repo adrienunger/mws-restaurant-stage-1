@@ -235,3 +235,9 @@ function toggleFavouriteLocally(htmlElement, isFavourite){
     htmlElement.setAttribute('aria-label', 'Mark as favourite');
   }
 }
+
+function show_map(){    
+    document.getElementById('map').style.display = 'block';
+    document.getElementById('skip-link').style.display = 'block';  
+    document.getElementById('mapShowButton').style.display = 'none';   
+}
