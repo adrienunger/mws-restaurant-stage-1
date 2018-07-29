@@ -1,13 +1,6 @@
 /* ====================== Media Query Breakpoints --- min-width > 551px ====================== */
 
 
-@media screen and (min-width:650px) {
-  .filter-options h2 {
-    display: inline-block;
-  }
-}
-
-
 /*check this again. is is max-width, not min*/
 @media screen and (max-width:850px) {
   #restaurant-container, #restaurant-cuisine, #restaurant-hours{
@@ -23,9 +16,6 @@
   #map {
     height: 50vh;
   }
-  #restaurants-list {
-    padding: 1.2em 1em 3em
-  }
 }
 @media screen and (min-width:851px) {
   #restaurant-container {
@@ -38,9 +28,6 @@
   }
   #restaurant-img, #restaurant-cuisine {
     max-width: 450px;
-  }
-  #restaurants-list {
-    padding: 1.4em 1em 3em
   }
 }
 

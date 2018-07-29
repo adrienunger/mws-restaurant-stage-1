@@ -46,7 +46,8 @@ self.addEventListener('install', (event) => {
         'css/styles.css',
         'css/styles_detail.css',
         'css/styles_main.css',
-        'css/styles_big_screen.css',
+        'css/styles_big_screen_detail.css',
+        'css/styles_big_screen_main.css',
         'restaurant.html',
         'index.html'
         ]);

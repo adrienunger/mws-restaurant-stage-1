@@ -216,13 +216,6 @@ header h1 a {
 #restaurant-hours td {
   color: #666;
 }
-.filter-options select:focus {
-  background-color: rgb(93, 217, 255);
-}
-
-#details-container {
-  width: 100%;
-}
 
 #restaurant-details {
   padding: 1em;
@@ -293,27 +286,6 @@ header h1 a {
   #map {
     height: 60vh;
   }
-
-  /*off-canvas filter*/
-  .filter-options {
-    width: 300px;
-    position: absolute;
-    /* This trasform moves the drawer off canvas. */
-    -webkit-transform: translate(-300px, 0);
-    transform: translate(-300px, 0);
-    /* Drawer animation */
-    transition: transform 0.3s ease;
-    display:none;
-  }
-  .filter-options.open {
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
-    display:block;
-  }
-  #menu {
-    display: block;
-  }
-
 }
 
 //this one needs to be in small_screen and big_screen css files

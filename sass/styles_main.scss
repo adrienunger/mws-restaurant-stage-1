@@ -74,38 +74,6 @@ header h1 a {
   text-transform: uppercase;
 }
 
-#breadcrumb {
-    padding: 12px 40px 14px;
-    list-style: none;
-    background-color: rgb(235, 235, 235);
-    font-size: 1.2em;
-    margin: 0;
-    text-align: left;
-}
-
-/* Display list items side by side */
-#breadcrumb li {
-    display: inline;
-}
-
-/* Add a slash symbol (/) before/behind each list item */
-#breadcrumb li+li:before {
-    padding: 8px;
-    color: black;
-    content: "/\00a0";
-}
-
-/* Add a color to all links inside the list */
-#breadcrumb li a {
-    color: #0258d8;
-    text-decoration: none;
-}
-
-/* Add a color on mouse-over */
-#breadcrumb li a:hover {
-    color: #01297e;
-    text-decoration: underline;
-}
 /* ====================== Map ====================== */
 #map {
   height: 40vh;
