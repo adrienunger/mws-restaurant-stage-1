@@ -290,7 +290,7 @@ class DBHelper {
         }
     })
     .then(response => {
-      console.log(response);
+      //console.log(response);
       return response.json();
       }) // parses response to JSON
     .catch(error => console.error(`Fetch Error =\n`, error));

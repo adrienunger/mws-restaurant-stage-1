@@ -32,7 +32,7 @@ function storeReviewData(jsonData){
 		var reviewDataStore = tx.objectStore('reviewData');
 		reviewDataStore.put(jsonData, 'reviews');
 		return tx.complete;
-	}).then(()=>console.log("stored successfully"));
+	});
 }
 
 function getReviewData(){
@@ -53,12 +53,26 @@ function updateFavourite(restaurantId, isFavourite){
 			for (let i = 0 ; i<restaurants.length; i++){
 				//console.log(restaurants[i]);
 				if (restaurants[i].id == restaurantId){
-					console.log(restaurants[i].name);
+					//console.log(restaurants[i].name);
 					restaurants[i].is_favorite = String(isFavourite);
 				}
 			}
 			//restaurants[restaurantId-1].is_favorite = isFavourite;
-			restaurantDataStore.put(restaurants,'restaurants'); //put possibly takes both, key and value 
+			restaurantDataStore.put(restaurants,'restaurants');
+			return tx.complete;
+		})
+	});
+}
+
+function addReviewToDB(reviewToAdd){
+	return dbPromise.then(db =>{
+		var tx = db.transaction('reviewData','readwrite');
+		var reviewDataStore = tx.objectStore('reviewData');
+		reviewDataStore.get('reviews')
+		.then(reviews =>{
+			reviewToAdd.id = reviews.length;
+			reviews.push(reviewToAdd);
+			reviewDataStore.put(reviews,'reviews');
 			return tx.complete;
 		})
 	});

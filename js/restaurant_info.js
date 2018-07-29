@@ -218,6 +218,24 @@ addReview = () => {
     rating: rating,
     comments: comment
   }
-  //console.log(review);
+
+  let currentTimestamp = Date.now();
+
+  let reviewLocalDB =  {
+    id: 0,
+    restaurant_id: self.restaurant.id,
+    name: author,
+    rating: rating,
+    comments: comment,
+    createdAt: currentTimestamp,
+    updatedAt: currentTimestamp
+  }
+
+  //add to local idb db
+  addReviewToDB(reviewLocalDB);
+  //show local changes in the ui (add the new review to the reviews list)
+  const revList = document.getElementById('reviews-list');
+  revList.appendChild(createReviewHTML(reviewLocalDB));
+  //send request to the server
   DBHelper.addReview(review);
 }
