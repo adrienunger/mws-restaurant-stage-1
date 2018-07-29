@@ -44,15 +44,21 @@ function getReviewData(){
 }
 
 
-//TODO: doesn't work yet
 function updateFavourite(restaurantId, isFavourite){
 	return dbPromise.then(db =>{
 		var tx = db.transaction('restaurantData','readwrite');
 		var restaurantDataStore = tx.objectStore('restaurantData');
 		restaurantDataStore.get('restaurants')
 		.then(restaurants =>{
-			restaurants[restaurantId-1].is_favorite = isFavourite;
-			restaurantDataStore.put('restaurants'); //put possibly takes both, key and value 
+			for (let i = 0 ; i<restaurants.length; i++){
+				//console.log(restaurants[i]);
+				if (restaurants[i].id == restaurantId){
+					console.log(restaurants[i].name);
+					restaurants[i].is_favorite = String(isFavourite);
+				}
+			}
+			//restaurants[restaurantId-1].is_favorite = isFavourite;
+			restaurantDataStore.put(restaurants,'restaurants'); //put possibly takes both, key and value 
 			return tx.complete;
 		})
 	});

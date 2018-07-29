@@ -159,7 +159,10 @@ createRestaurantHTML = (restaurant) => {
     DBHelper.toggleFavouriteRestaurant(restaurant.id, !isFavourite);
      //string conversion here is necessary due to the bug, that the server doesn't save the values properly as boolean.
      //without the string conversion here the code for favourite toggling breaks
-    restaurant.is_favorite = String(!isFavourite); 
+    restaurant.is_favorite = String(!isFavourite);
+    //updates the idb entry for the restaurant
+    updateFavourite(restaurant.id, !isFavourite);
+    //toggles the local change in the ui + the aria attributes 
     toggleFavouriteLocally(favourite, !isFavourite);
   };
 
