@@ -117,14 +117,35 @@ header h1 a {
   width: 100%;
 }
 
+
+#map-button-detail{
+  margin-left: auto;
+  margin-right: auto;
+  display: none;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding: 1.2em 1.8em;
+
+  background-color: rgb(221, 41, 0);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  border: none;
+  border-radius: 2px;
+  color: rgb(255, 255, 255);
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
 /* ====================== Restaurant Details ====================== */
 .inside header {
   position: relative;
 
 }
 .inside #map-container {
-  background: blue none repeat scroll 0 0;
-  height: 50vh;
+  /*background: blue none repeat scroll 0 0;
+  height: 50vh;*/
   position: relative;
   width: 100%;
 }
@@ -171,6 +192,10 @@ header h1 a {
   width: 100%;
 }
 
+#restaurant-container{
+  text-align: center;
+}
+
 #reviews-container h2, #reviews-form-container h2 {
   color: #f14c00;
   font-size: 1.5em;
@@ -215,6 +240,11 @@ header h1 a {
 }
 #restaurant-hours td {
   color: #666;
+}
+
+#restaurant-cuisine, #restaurant-hours{
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #restaurant-details {
@@ -284,14 +314,23 @@ header h1 a {
 
 @media screen and (max-width:550px) {
   #map {
-    height: 60vh;
+    /*height: 60vh;*/
+    display: none;
+  }
+  #skip-link-detail{
+    display: none;
+  }
+  #map-button-detail{
+    display: block;
+  }
+  #map-container{
+    background-color: #bbb;
   }
 }
 
 //this one needs to be in small_screen and big_screen css files
 @media screen and (max-width:850px) {
   #restaurant-container, #restaurant-cuisine, #restaurant-hours{
-    text-align: center;
     margin:auto;
   }
   #restaurant-img, #restaurant-cuisine {

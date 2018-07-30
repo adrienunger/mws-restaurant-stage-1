@@ -87,7 +87,7 @@ header h1 a {
   border-top: 1px solid #fff;
 }
 
-#mapShowButton{
+#map-button{
   margin-left: auto;
   margin-right: auto;
   display: none;
@@ -226,7 +226,6 @@ header h1 a {
 }
 
 .fav-button{
-  color: #cca300;
   float: right;
   border: none;
   min-height: 48px;
@@ -240,10 +239,10 @@ background-color: #ff441a;
 }
 
 .fav-yes{
-  color: #cca300;
+  color: goldenrod;
 }
 .fav-no{
-  color: #333;
+  color: #888;
 }
 
 
@@ -330,7 +329,7 @@ background-color: #ff441a;
   #skip-link{
     display: none;
   }
-  #mapShowButton{
+  #map-button{
     display: block;
   }
   #map-container{

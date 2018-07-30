@@ -34,10 +34,11 @@
 
   <!-- Beginning main -->
   <main id="maincontent">
-    <a href="#restaurant-container" class="skip-link">Skip to restaurant</a>
+    <a href="#restaurant-container" class="skip-link" id="skip-link-detail">Skip to restaurant</a>
     <div id="detailspage-flex-container" class="flex-container">
       <!-- Beginning map -->
       <section id="map-container">
+        <button id="map-button-detail" aria-label="Display interactive restaurant map." onclick="show_map_detail()">Show map</button>
         <div id="map" role="application" aria-label="Google Maps"></div>
       </section>
       <!-- End map -->

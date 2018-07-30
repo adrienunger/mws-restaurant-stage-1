@@ -239,3 +239,12 @@ addReview = () => {
   //send request to the server
   DBHelper.addReview(review);
 }
+
+
+function show_map_detail(){    
+    document.getElementById('map').style.display = 'block';
+    document.getElementById('map').style.height = '60vh';
+    document.getElementById('map-container').style.height = '60vh';
+    document.getElementById('skip-link-detail').style.display = 'block';  
+    document.getElementById('map-button-detail').style.display = 'none';   
+}

@@ -16,6 +16,9 @@
   #map {
     height: 50vh;
   }
+  .inside #map-container {
+    height: 50vh;
+  }
 }
 @media screen and (min-width:851px) {
   #restaurant-container {
