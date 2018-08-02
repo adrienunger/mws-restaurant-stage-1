@@ -13,7 +13,7 @@ I've converted a very simple static webpage with only the basic functionalities 
     - Responsive images and art direction
     - Design adapts to every viewport size
     - Off-Canvas Pattern usage for small mobile devices
-    - Option to trigger loading google maps manually on small devices -> drastically improves UX by boosting Time-To-Interactive
+    - Google Maps can be triggered manually on small mobile devices
 - **Accesibility:**
     - Fulfills latest accessibility standards
     - Screen-reader support
@@ -39,7 +39,7 @@ I've converted a very simple static webpage with only the basic functionalities 
 		- *JS processing* with concatenation, minification, tanspiling with babel
 		- CSS and JS *source maps* (currently disabled to minimize filesize and boost performance)
 		- *Image minification* through lossless compression
-		- Creation of *Responsive images* with imagemin and *Conversion* with imagemin-webp
+		- Creation of *Responsive images* and *Conversion* to WebP format
 		- *Live-editing* with browsersync
 		- Seperate tasks for development and distribution
 - **Site Performance + Quality:**
@@ -51,11 +51,11 @@ I've converted a very simple static webpage with only the basic functionalities 
 	- Advanced performance optimising techniques:
 		- lazyloading images with Intersection Observer (work in progress)
 		- lazyloading images with responsively-lazy lib (currently removed, since the library introduced some bugs)
-		- Webp format usage for all images
+		- WebP format usage for all images
+	    - Option to trigger loading google maps manually on mobile devices -> drastically improves UX by boosting Time-To-Interactive
 - **Newly Integrated Functionality**
 	- Favourite Restaurants:
 		- Restaurants can now be marked as a favourite
-		- Intuitive toggle button in restaurant overview
 	- Adding Reviews:
 		- It's now possible to add reviews to a restaurant
 
