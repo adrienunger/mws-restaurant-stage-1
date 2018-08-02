@@ -12,7 +12,8 @@ I've converted a very simple static webpage with only the basic functionalities 
 - **Fully responsive, mobile-ready design:**
     - Responsive images and art direction
     - Design adapts to every viewport size
-    - Off-Canvas Pattern usage for small mobile Devices
+    - Off-Canvas Pattern usage for small mobile devices
+    - Option to trigger loading google maps manually on small devices -> drastically improves UX by boosting Time-To-Interactive
 - **Accesibility:**
     - Fulfills latest accessibility standards
     - Screen-reader support
@@ -22,28 +23,41 @@ I've converted a very simple static webpage with only the basic functionalities 
     - Offline capability of visited sites through:
 	    - Caching of application shell and requests via *Cache API*
 	    - Local data caching using *indexedDB* (with the indexedDB Promises Library)
+	    - Integrated *Background Sync* with *Google Workbox*:
+	    	- failed request will be automatically repeated once the network connection is restored
+	    	- Reliability: repeating failed requests works up to 24 hours after the initial failed request and even after closing the website
+	    - Changing the favourite state of a restaurant or adding a review updates the local idb database, thus ensuring full offline functionality + responsiveness
     - Web App Manifest defining app behaviour when installed on a smartphones homescreen
-- **Future-proof code:**
+- **Future-proof Code:**
     - the code is written to conform with the latest JavaScript features and standards (ES6)
     - maintains full compatibility with older browser via transpiling (work in progress; currently disabled)
-    - Asynchronous data retrieval using the Fetch API
+    - Asynchronous data retrieval and update using the Fetch API
 - **Sophisticated Build Process:**
 	- Project Structure separating development and distribution/production code
 	- Gulp build process featuring:
 		- *CSS processing* with sass and autoprefixer
 		- *JS processing* with concatenation, minification, tanspiling with babel
-		- CSS and JS *source maps*
+		- CSS and JS *source maps* (currently disabled to minimize filesize and boost performance)
 		- *Image minification* through lossless compression
+		- Creation of *Responsive images* with imagemin and *Conversion* with imagemin-webp
 		- *Live-editing* with browsersync
 		- Seperate tasks for development and distribution
 - **Site Performance + Quality:**
 	- optimized to satisfy Google Chrome Lighthouse audits
 		- Scoring:
 			- Progressive Web Apps: >90 
-			- Performance: >70 
+			- Performance: >90 
 			- Accessibility: >90
 	- Advanced performance optimising techniques:
-		- lazyloading images (with responsively-lazy library)
+		- lazyloading images with Intersection Observer (work in progress)
+		- lazyloading images with responsively-lazy lib (currently removed, since the library introduced some bugs)
+		- Webp format usage for all images
+- **Newly Integrated Functionality**
+	- Favourite Restaurants:
+		- Restaurants can now be marked as a favourite
+		- Intuitive toggle button in restaurant overview
+	- Adding Reviews:
+		- It's now possible to add reviews to a restaurant
 
 
 
@@ -51,7 +65,7 @@ I've converted a very simple static webpage with only the basic functionalities 
 
 **Start the Server:**
 Follow the "Getting Started" instructions in this repo:
-https://github.com/adrienunger/mws-restaurant-stage-2
+https://github.com/adrienunger/mws-restaurant-stage-3
 This will start the Server delivering the restaurant data over network.
 
 **Start the Web App:**
